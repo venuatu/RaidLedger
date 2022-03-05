@@ -828,7 +828,8 @@ function GUI:Init()
                                 SendRaidMessage(item .. " " .. L["Hammer Price"] .. " >>" .. GetMoneyStringL(ctx.currentprice) .. "<< " .. L["Winner"] .. " " .. ctx.currentwinner)
                                 ctx.entry["beneficiary"] = ctx.currentwinner
                                 ctx.entry["cost"] = ctx.currentprice / 10000
-                                ctx.entry["lock"] = true
+                                ctx.entry["lock"] = false
+                                ctx.entry["outstanding"] = true
                                 GUI:UpdateLootTableFromDatabase()
                             else
                                 SendRaidMessage(item .. " " .. L["is bought in"])
