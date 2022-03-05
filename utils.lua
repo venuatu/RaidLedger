@@ -404,7 +404,7 @@ ADDONSELF.genreport = function(items, n, channel, conf)
         end
 
         if c > 0 then
-            table.insert(lines, "RaidLedger:.... " .. L["Credit"] .. " ....")
+            table.insert(lines, "Total " .. L["Credit"] .. " ....")
             -- table.insert(lines, "RaidLedger: " .. L["Top [%d] contributors"]:format(c))
         end
 
@@ -425,7 +425,7 @@ ADDONSELF.genreport = function(items, n, channel, conf)
     end
 
     if expense > 0 then
-        table.insert(lines, "RaidLedger:.... " .. L["Debit"] .. " ....")
+        table.insert(lines, "Total " .. L["Debit"] .. " ....")
 
         local c = math.min( #compensation, 40)
 
@@ -456,7 +456,8 @@ ADDONSELF.genreport = function(items, n, channel, conf)
     table.insert(lines, L["Expense"] .. ": " .. expense)
     table.insert(lines, L["Net Profit"] .. ": " .. profit)
     table.insert(lines, L["Split into"]  .. ": " .. n)
-    table.insert(lines, "RaidLedger: ..." .. L["Per Member credit"] .. ": [" .. avg .. (conf.rounddown and (" (" .. L["Round down"] .. ")]...") or "]..."))
+    table.insert(lines, "Total " .. L["Per Member credit"] .. ": [" .. avg .. ("]..."))
+    -- conf.rounddown and (" (" .. L["Round down"] .. ")]...") or 
 
     sendchat(lines, channel)
 
