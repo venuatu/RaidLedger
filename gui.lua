@@ -675,7 +675,13 @@ function GUI:Init()
                     return
                 end
 
-                local ask = tonumber(text)
+                local ask = tonumber(text:match("^([0-9]+%.?[0-9]*)[kK]"))
+                if not ask then
+                    ask = tonumber(text:match("%d+"))
+                else
+                    ask = math.floor(ask*1000)
+                end
+                -- local ask = tonumber(text)
                 if not ask then
                     return
                 end
